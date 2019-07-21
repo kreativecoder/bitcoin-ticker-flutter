@@ -14,6 +14,7 @@ const List<String> currenciesList = [
   'JPY',
   'MXN',
   'NOK',
+  'NGN',
   'NZD',
   'PLN',
   'RON',
@@ -34,8 +35,8 @@ const bitcoinAverageURL =
     'https://apiv2.bitcoinaverage.com/indices/global/ticker';
 
 class CoinData {
-  Future<dynamic> getCoinData() async {
-    String url = '$bitcoinAverageURL/BTCUSD';
+  Future<dynamic> getCoinData(String currency) async {
+    String url = '$bitcoinAverageURL/BTC$currency';
 
     NetworkHelper networkHelper = NetworkHelper(url);
     var coinData = await networkHelper.getData();
